@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trivia Quiz</title>
+</head>
+<body>
+    <header>
+        <h1>Trivia Quiz home</h1>
+    </header>
+
+    <main>
+        <section id="quiz">
+            <h2>Question 1: What is the capital of France?</h2>
+            <ul>
+                <li><button onclick="checkAnswer('Paris')">Paris</button></li>
+                <li><button onclick="checkAnswer('Berlin')">Berlin</button></li>
+                <li><button onclick="checkAnswer('Rome')">Rome</button></li>
+                <li><button onclick="checkAnswer('Madrid')">Madrid</button></li>
+            </ul>
+            <p id="result"></p>
+            <button onclick="nextQuestion()">Next Question</button>
+        </section>
+
+        <section id="results" style="display: none;">
+            <h2>Quiz Results</h2>
+            <p>You scored <span id="score">0</span> out of <span id="totalQuestions">0</span> questions.</p>
+        </section>
+    </main>
+
+    <script>
+        const quizData = [
+    {
+        question: "What is the capital of France?",
+        answers: ["Berlin", "Paris", "Rome", "Madrid"],
+        correctAnswer: "Paris"
+    },
+    {
+        question: "Who wrote 'Romeo and Juliet'?",
+        answers: ["William Shakespeare", "Jane Austen", "Charles Dickens", "Leo Tolstoy"],
+        correctAnswer: "William Shakespeare"
+    },
+    {
+        question: "What is clour of pilasma'?",
+        answers: ["Blue", "Pink", "red", "Yellow"],
+        correctAnswer: "Yellow"
+    },
+    {
+        question: "Who is a threezenosoruse'?",
+        answers: ["Long neck Dinosaurs", "Three claws Diosaurs"],
+        correctAnswer: "Three claws Diosaurs"
+    },
+    {
+        question: "What is clour of birain'?",
+        answers: ["light pink", "dark pink"],
+        correctAnswer: "light pink"
+    },
+    {
+        question: "What is the name of the king of the jungle'?",
+        answers: ["lion", "bear", "ret", "picacho"],
+        correctAnswer: "lion"
+    },
+    {
+        question: "What is the name of the king of the Water'?",
+        answers: ["blue whale", "Great white shark", "killer whale (orca)", "crocodile"],
+        correctAnswer: "Great white shark"
+    },
+    {
+        question: "What is the name of the king of the Air'?",
+        answers: ["Eagle", "Pigeon", "Parrots", "crow"],
+        correctAnswer: "Eagle"
+    }
+    // Add more questions as needed
+];
+
+let currentQuestion = 0;
+let score = 0;
+
+function loadQuestion() {
+    const questionElement = document.querySelector("#quiz h2");
+    const answersElement = document.querySelector("#quiz ul");
+    const resultElement = document.querySelector("#result");
+
+    questionElement.textContent = quizData[currentQuestion].question;
+    answersElement.innerHTML = "";
+
+    quizData[currentQuestion].answers.forEach(answer => {
+        const li = document.createElement("li");
+        const button = document.createElement("button");
+        button.textContent = answer;
+        button.onclick = function() {
+            checkAnswer(answer);
+        };
+        li.appendChild(button);
+        answersElement.appendChild(li);
+    });
+
+    resultElement.textContent = "";
+}
+function loadQuestion() {
+    const questionElement = document.querySelector("#quiz h2");
+    const answersElement = document.querySelector("#quiz ul");
+    const resultElement = document.querySelector("#result");
+
+    questionElement.textContent = quizData[currentQuestion].question;
+    answersElement.innerHTML = "";
+
+    quizData[currentQuestion].answers.forEach(answer => {
+        const li = document.createElement("li");
+        const button = document.createElement("button");
+        button.textContent = answer;
+        button.onclick = function() {
+            checkAnswer(answer);
+        };
+        li.appendChild(button);
+        answersElement.appendChild(li);
+    });
+
+    resultElement.textContent = "";
+}
+function checkAnswer(answer) {
+    const resultElement = document.querySelector("#result");
+
+    if (answer === quizData[currentQuestion].correctAnswer) {
+        resultElement.textContent = "Correct!";
+        score++;
+    } else {
+        resultElement.textContent = "Wrong!";
+    }
+}
+
+function nextQuestion() {
+    currentQuestion++;
+
+    if (currentQuestion < quizData.length) {
+        loadQuestion();
+    } else {
+        showResults();
+    }
+}
+
+function showResults() {
+    const quizSection = document.querySelector("#quiz");
+    const resultsSection = document.querySelector("#results");
+    const scoreElement = document.querySelector("#score");
+    const totalQuestionsElement = document.querySelector("#totalQuestions");
+
+    quizSection.style.display = "none";
+    resultsSection.style.display = "block";
+    scoreElement.textContent = score;
+    totalQuestionsElement.textContent = quizData.length;
+}
+
+// Initialize quiz
+loadQuestion();
+
+    </script>
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    text-align: center;
+    background-image:url(images1.jpg);
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 0;
+}
+
+main {
+    padding: 20px;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+button {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    margin: 5px;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+#results {
+    margin-top: 20px;
+}
+
+    </style>
+    <button>
+        <a href="my higher experiment.html">next geme</a>
+    </button>
+    
+</body>
+</html>

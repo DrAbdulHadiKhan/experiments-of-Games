@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkillSphere Game</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+        #skill {
+            width: 200px;
+            height: 200px;
+            background-color: #3498db;
+            border-radius: 50%;
+            margin: 50px auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
+            color: #fff;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        #skill:hover {
+            background-color: #2980b9;
+        }
+    </style>
+</head>
+<body>
+    <h3>click here to 80 scores</h3>
+    <h1>SkillSphere Game</h1>
+    <div id="skill">Click to Increase Skill</div>
+    <p id="score">Skill Level: 0</p>
+
+    <script>
+        let skillLevel = 0;
+
+        // Function to increase skill level and update on UI
+        function increaseSkill() {
+            skillLevel++;
+            document.getElementById('score').textContent = `Skill Level: ${skillLevel}`;
+        }
+
+        // Event listener for clicking on the skill sphere
+        document.getElementById('skill').addEventListener('click', increaseSkill);
+    </script>
+    <a href="my higher experiment4.html">next geme</a>
+</body>
+</html>

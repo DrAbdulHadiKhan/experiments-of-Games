@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Play Forge Game</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+        .score {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 18px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Play Forge Game</h1>
+    <div class="score">Score: <span id="score">0</span></div>
+    <button id="clickButton">Click to Increase Score1000</button>
+
+    <script>
+        // JavaScript code for game logic
+        let score = 0;
+
+        // Function to increase score and update on UI
+        function increaseScore() {
+            score++;
+            document.getElementById('score').textContent = score;
+        }
+
+        // Event listener for the button click
+        document.getElementById('clickButton').addEventListener('click', increaseScore);
+    </script>
+</body>
+</html>
